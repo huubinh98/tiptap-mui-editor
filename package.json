@@ -1,0 +1,62 @@
+{
+  "name": "tiptap-mui-editor",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "description": "A Material-UI (MUI) styled WYSIWYG rich text editor, using Tiptap",
+  "keywords": [
+    "mui",
+    "tiptap",
+    "material-ui",
+    "prosemirror",
+    "rich text editor",
+    "rte",
+    "wysiwyg",
+    "quill",
+    "draftjs",
+    "slate"
+  ],
+  "author": "Huu binh",
+  "repository": "github:huubinh98/tiptap-mui-editor",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.16.14",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/react": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tss-react": "^4.9.15"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/lodash": "^4.17.15",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.20.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "type-fest": "^4.35.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.24.1",
+    "vite": "^6.1.1"
+  }
+}
