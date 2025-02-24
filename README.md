@@ -73,7 +73,7 @@
 
 Try it yourself in this **[CodeSandbox live demo](https://codesandbox.io/p/sandbox/mui-tiptap-demo-3zl2l6)**!
 
-![tiptap-mui-editor demo](https://github.com/huubinh98/tiptap-mui-editor/assets/1647130/b25d33e0-4cdc-4fde-95bc-ec8403da7ccd)
+![mui-tiptap demo](https://github.com/sjdemartini/mui-tiptap/assets/1647130/b25d33e0-4cdc-4fde-95bc-ec8403da7ccd)
 
 ## Installation
 
