@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <b>tiptap-mui-editor</b>: A customizable <a href="https://mui.com/material-ui/getting-started/overview/">Material UI</a> styled WYSIWYG rich text editor, using <a href="https://tiptap.dev/">Tiptap</a>.
+  <b>tiptap-mui-editor</b>: A customizable <a href="https://mui.com/material-ui/getting-started/overview/">Material UI</a> styled WYSIWYG rich text editor, using <a href="https://tiptap.dev/">Tiptap</a>. It's in the process of being completed, coming soon.
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
     <img alt="project license" src="https://img.shields.io/npm/l/mui-tiptap">
   </a>
 </p>
-
+<!-- 
 - :sparkles: Styled based on your own MUI theme (colors, fonts, light vs dark mode, etc.)
 - :hammer_and_wrench: Built on powerful Tiptap and ProseMirror foundations (extensible, real-time collaborative editing, cross-platform support, etc.)
 
@@ -95,6 +95,7 @@ npm install @mui/material @mui/icons-material @emotion/react @emotion/styled @ti
 
 or
 
-```shell
+````shell
 yarn add @mui/material @mui/icons-material @emotion/react @emotion/styled @tiptap/react @tiptap/extension-heading @tiptap/extension-image @tiptap/extension-table @tiptap/pm @tiptap/core
-```
+``` -->
+````
