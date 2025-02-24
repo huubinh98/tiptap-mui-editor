@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/sjdemartini/mui-tiptap" target="_blank">
+  <a href="https://github.com/huubinh98/tiptap-mui-editor" target="_blank">
     <img src="https://github.com/sjdemartini/mui-tiptap/assets/1647130/e1f01441-c74a-410c-b25d-5a58615d3e6a" alt="mui-tiptap logo" width="350" />
   </a>
 </p>
@@ -9,13 +9,13 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/mui-tiptap">
-    <img alt="npm mui-tiptap package" src="https://img.shields.io/npm/v/mui-tiptap">
+  <a href="https://www.npmjs.com/package/tiptap-mui-editor">
+    <img alt="npm tiptap-mui-editor package" src="https://img.shields.io/npm/v/mui-tiptap">
   </a>
-  <a href="https://www.npmjs.com/package/mui-tiptap">
+  <a href="https://www.npmjs.com/package/tiptap-mui-editor">
     <img alt="npm type definitions" src="https://img.shields.io/npm/types/mui-tiptap">
   </a>
-  <a href="https://github.com/sjdemartini/mui-tiptap/actions">
+  <a href="https://github.com/huubinh98/tiptap-mui-editor/actions">
     <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/sjdemartini/mui-tiptap/build-test.yml">
   </a>
   <a href="https://github.com/sjdemartini/mui-tiptap/blob/main/LICENSE">
@@ -49,7 +49,7 @@
   - [Use the all-in-one component](#use-the-all-in-one-component)
   - [Create and provide the `editor` yourself](#create-and-provide-the-editor-yourself)
   - [Render read-only rich text content](#render-read-only-rich-text-content)
-- [mui-tiptap extensions and components](#mui-tiptap-extensions-and-components)
+- [tiptap-mui-editor extensions and components](#tiptap-mui-extensions-and-components)
   - [Tiptap extensions](#tiptap-extensions)
     - [`HeadingWithAnchor`](#headingwithanchor)
     - [`FontSize`](#fontsize)
@@ -73,7 +73,7 @@
 
 Try it yourself in this **[CodeSandbox live demo](https://codesandbox.io/p/sandbox/mui-tiptap-demo-3zl2l6)**!
 
-![mui-tiptap demo](https://github.com/sjdemartini/mui-tiptap/assets/1647130/b25d33e0-4cdc-4fde-95bc-ec8403da7ccd)
+![tiptap-mui-editor demo](https://github.com/huubinh98/tiptap-mui-editor/assets/1647130/b25d33e0-4cdc-4fde-95bc-ec8403da7ccd)
 
 ## Installation
 
