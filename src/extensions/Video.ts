@@ -1,7 +1,15 @@
 import { Node } from "@tiptap/core";
 
-interface VideoOptions {
+export interface VideoOptions {
   HTMLAttributes: Record<string, unknown>;
+
+    /**
+   * Controls if base64 images are allowed. Enable this if you want to allow
+   * base64 image urls in the `src` attribute.
+   * @default false
+   * @example true
+   */
+    allowBase64: boolean,
 }
 
 declare module "@tiptap/core" {
@@ -20,6 +28,7 @@ export const Video = Node.create<VideoOptions>({
   addOptions() {
     return {
       HTMLAttributes: {},
+      allowBase64: false,
     };
   },
 

@@ -23,7 +23,12 @@ const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({ editor: editorPro
   const [open, setOpen] = useState(false);
   const [url, setUrl] = useState("");
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    if (editor && editor.isEditable) {
+      setOpen(true);
+    }
+  };
+
   const handleClose = () => {
     setOpen(false);
     setUrl("");
@@ -46,7 +51,7 @@ const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({ editor: editorPro
         tooltipLabel="Insert YouTube video"
         IconComponent={YouTubeIcon}
         onClick={handleOpen}
-        disabled={!editor?.isEditable || !editor.can().setYoutubeVideo({ src: "https://youtube.com" })}
+        disabled={!editor?.isEditable}
         {...props}
       />
       <Dialog open={open} onClose={handleClose}>

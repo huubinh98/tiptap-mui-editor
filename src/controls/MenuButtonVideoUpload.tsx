@@ -1,8 +1,10 @@
+import TheatersIcon from "@mui/icons-material/Theaters";
 import type { Editor } from "@tiptap/core";
 import { useRef, type ComponentPropsWithoutRef } from "react";
-import type { SetOptional } from "type-fest";
+import type { SetOptional, SetRequired } from "type-fest";
 import { useRichTextEditorContext } from "../context";
-import MenuButtonAddImage, { type MenuButtonAddImageProps } from "./MenuButtonAddImage";
+import MenuButton, { MenuButtonProps } from "./MenuButton";
+import { type MenuButtonAddImageProps } from "./MenuButtonAddImage";
 
 export interface VideoNodeAttributes {
   src: string;
@@ -10,6 +12,11 @@ export interface VideoNodeAttributes {
   width?: string;
   height?: string;
 }
+
+export type MenuButtonAddVideoProps = SetRequired<
+  Partial<MenuButtonProps>,
+  "onClick"
+>;
 
 export interface MenuButtonVideoUploadProps
   extends SetOptional<MenuButtonAddImageProps, "onClick"> {
@@ -79,8 +86,13 @@ const MenuButtonVideoUpload: React.FC<MenuButtonVideoUploadProps> = ({
 
   return (
     <>
-      <MenuButtonAddImage
+      <MenuButton
         tooltipLabel="Upload videos"
+        IconComponent={TheatersIcon}
+        disabled={
+          !editor?.isEditable ||
+          !editor.can().setVideo({ src: "http://example.com" })
+        }
         onClick={() => fileInput.current?.click()}
         {...props}
       />

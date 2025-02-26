@@ -25,7 +25,37 @@ import { TaskItem } from "@tiptap/extension-task-item";
 import { TaskList } from "@tiptap/extension-task-list";
 import { Text } from "@tiptap/extension-text";
 import { useRef, useState } from "react";
-import { HeadingWithAnchor, LinkBubbleMenu, LinkBubbleMenuHandler, MenuButtonAddTable, MenuButtonBlockquote, MenuButtonBold, MenuButtonBulletedList, MenuButtonCode, MenuButtonCodeBlock, MenuButtonEditLink, MenuButtonItalic, MenuButtonOrderedList, MenuButtonRemoveFormatting, MenuButtonStrikethrough, MenuButtonSubscript, MenuButtonSuperscript, MenuButtonTaskList, MenuControlsContainer, MenuDivider, MenuSelectHeading, ResizableImage, RichTextEditor, RichTextEditorRef, TableBubbleMenu, TableImproved } from "../../dist";
+import {
+  HeadingWithAnchor,
+  LinkBubbleMenu,
+  LinkBubbleMenuHandler,
+  MenuButtonAddTable,
+  MenuButtonBlockquote,
+  MenuButtonBold,
+  MenuButtonBulletedList,
+  MenuButtonCode,
+  MenuButtonCodeBlock,
+  MenuButtonEditLink,
+  MenuButtonImageUpload,
+  MenuButtonItalic,
+  MenuButtonOrderedList,
+  MenuButtonRemoveFormatting,
+  MenuButtonStrikethrough,
+  MenuButtonSubscript,
+  MenuButtonSuperscript,
+  MenuButtonTaskList,
+  MenuButtonVideoUpload,
+  MenuButtonYoutube,
+  MenuControlsContainer,
+  MenuDivider,
+  MenuSelectHeading,
+  ResizableImage,
+  ResizableVideo,
+  RichTextEditor,
+  RichTextEditorRef,
+  TableBubbleMenu,
+  TableImproved,
+} from "../../dist";
 
 const exampleContent =
   '<h2>Hey there 👋</h2><p>This is a <em>basic</em> example of using <a target="_blank" rel="noopener noreferrer nofollow" href="https://tiptap.dev/">Tiptap</a> with <a target="_blank" rel="noopener noreferrer nofollow" href="https://mui.com/">MUI (Material-UI)</a>. Sure, there are all kind of <strong>basic text styles</strong> you’d probably expect from a text editor. But wait until you see the lists:</p><ul><li><p>That’s a bullet list with one …</p></li><li><p>… or two list items.</p></li></ul><p>Isn’t that great? And all of that is editable. But wait, there’s more. Let’s try <code>inline code</code> and a code block:</p><pre><code class="language-css">body {\n  display: none;\n}</code></pre><p></p><p>It’s only the tip of the iceberg though. Give it a try and click a little bit around. And feel free to add and resize images:</p><img height="auto" src="https://picsum.photos/600/400" alt="random image" width="350" style="aspect-ratio: 3 / 2"><p></p><p>Organize information in tables:</p><table><tbody><tr><th colspan="1" rowspan="1"><p>Name</p></th><th colspan="1" rowspan="1"><p>Role</p></th><th colspan="1" rowspan="1"><p>Team</p></th></tr><tr><td colspan="1" rowspan="1"><p>Alice</p></td><td colspan="1" rowspan="1"><p>PM</p></td><td colspan="1" rowspan="1"><p>Internal tools</p></td></tr><tr><td colspan="1" rowspan="1"><p>Bob</p></td><td colspan="1" rowspan="1"><p>Software</p></td><td colspan="1" rowspan="1"><p>Infrastructure</p></td></tr></tbody></table><p></p><p>Or write down your groceries:</p><ul data-type="taskList"><li data-checked="true" data-type="taskItem"><label><input type="checkbox" checked="checked"><span></span></label><div><p>Milk</p></div></li><li data-checked="false" data-type="taskItem"><label><input type="checkbox"><span></span></label><div><p>Eggs</p></div></li><li data-checked="false" data-type="taskItem"><label><input type="checkbox"><span></span></label><div><p>Sriracha</p></div></li></ul><blockquote><p>Wow, that’s amazing. Good work, boy! 👏 <br>— Mom</p></blockquote><p>Give it a try!</p>';
@@ -91,6 +121,8 @@ const extensions = [
   }),
 
   ResizableImage,
+  ResizableVideo,
+  // ResizableYoutube,
 
   // When images are dragged, we want to show the "drop cursor" for where they'll
   // land
@@ -104,6 +136,8 @@ const extensions = [
   Placeholder.configure({
     placeholder: "Add your own content here...",
   }),
+  // Youtube.configure({ controls: true }),
+  // Video,
 
   // We use the regular `History` (undo/redo) extension when not using
   // collaborative editing
@@ -114,6 +148,17 @@ export default function PageContentWithEditor() {
   const rteRef = useRef<RichTextEditorRef>(null);
 
   const [htmlResult, setHtmlResult] = useState("");
+  // interface UploadedVideo {
+  //   src: string;
+  //   controls: boolean;
+  // }
+
+  // const handleUploadVideo = async (files: File[]): Promise<UploadedVideo[]> => {
+  //   console.log("object :>> ", files);
+  //   // Giả lập upload
+  //   const videoUrl = "https://youtu.be/_kQJbMOGB20"; // Thay bằng logic thực tế
+  //   return [{ src: videoUrl, controls: true }];
+  // };
 
   return (
     <>
@@ -162,6 +207,33 @@ export default function PageContentWithEditor() {
             <MenuDivider />
 
             <MenuButtonRemoveFormatting />
+
+            <MenuButtonYoutube editor={rteRef.current?.editor} />
+            <MenuButtonImageUpload
+              onUploadFiles={(files) =>
+                // For the sake of a demo, we don't have a server to upload the files
+                // to, so we'll instead convert each one to a local "temporary" object
+                // URL. This will not persist properly in a production setting. You
+                // should instead upload the image files to your server, or perhaps
+                // convert the images to bas64 if you would like to encode the image
+                // data directly into the editor content, though that can make the
+                // editor content very large.
+                files.map((file) => ({
+                  src: URL.createObjectURL(file),
+                  alt: file.name,
+                }))
+              }
+            />
+
+            <MenuButtonVideoUpload
+              onUploadFiles={(files) => {
+                console.log("files :>> ", files);
+                return files.map((file) => ({
+                  src: URL.createObjectURL(file),
+                  controls: true,
+                }));
+              }}
+            />
           </MenuControlsContainer>
         )}
       >
