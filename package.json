@@ -88,6 +88,7 @@
     "@tiptap/extension-text-align": "^2.11.5",
     "@tiptap/extension-text-style": "^2.11.5",
     "@tiptap/extension-underline": "^2.11.5",
+    "@tiptap/extension-youtube": "^2.11.5",
     "@tiptap/suggestion": "^2.11.5",
     "@types/encodeurl": "^1.0.2",
     "@types/lodash": "^4.17.15",

@@ -4,150 +4,160 @@ export * from "./ColorSwatchButton";
 export { default as MenuButton, type MenuButtonProps } from "./MenuButton";
 export {
   default as MenuButtonAddImage,
-  type MenuButtonAddImageProps,
+  type MenuButtonAddImageProps
 } from "./MenuButtonAddImage";
 export {
   default as MenuButtonAddTable,
-  type MenuButtonAddTableProps,
+  type MenuButtonAddTableProps
 } from "./MenuButtonAddTable";
 export {
   default as MenuButtonAlignCenter,
-  type MenuButtonAlignCenterProps,
+  type MenuButtonAlignCenterProps
 } from "./MenuButtonAlignCenter";
 export {
   default as MenuButtonAlignJustify,
-  type MenuButtonAlignJustifyProps,
+  type MenuButtonAlignJustifyProps
 } from "./MenuButtonAlignJustify";
 export {
   default as MenuButtonAlignLeft,
-  type MenuButtonAlignLeftProps,
+  type MenuButtonAlignLeftProps
 } from "./MenuButtonAlignLeft";
 export {
   default as MenuButtonAlignRight,
-  type MenuButtonAlignRightProps,
+  type MenuButtonAlignRightProps
 } from "./MenuButtonAlignRight";
 export {
   default as MenuButtonBlockquote,
-  type MenuButtonBlockquoteProps,
+  type MenuButtonBlockquoteProps
 } from "./MenuButtonBlockquote";
 export {
   default as MenuButtonBold,
-  type MenuButtonBoldProps,
+  type MenuButtonBoldProps
 } from "./MenuButtonBold";
 export {
   default as MenuButtonBulletedList,
-  type MenuButtonBulletedListProps,
+  type MenuButtonBulletedListProps
 } from "./MenuButtonBulletedList";
 export {
   default as MenuButtonCode,
-  type MenuButtonCodeProps,
+  type MenuButtonCodeProps
 } from "./MenuButtonCode";
 export {
   default as MenuButtonCodeBlock,
-  type MenuButtonCodeBlockProps,
+  type MenuButtonCodeBlockProps
 } from "./MenuButtonCodeBlock";
 export * from "./MenuButtonColorPicker";
 export {
   default as MenuButtonEditLink,
-  type MenuButtonEditLinkProps,
+  type MenuButtonEditLinkProps
 } from "./MenuButtonEditLink";
 export {
   default as MenuButtonHighlightColor,
-  type MenuButtonHighlightColorProps,
+  type MenuButtonHighlightColorProps
 } from "./MenuButtonHighlightColor";
 export {
   default as MenuButtonHighlightToggle,
-  type MenuButtonHighlightToggleProps,
+  type MenuButtonHighlightToggleProps
 } from "./MenuButtonHighlightToggle";
 export {
   default as MenuButtonHorizontalRule,
-  type MenuButtonHorizontalRuleProps,
+  type MenuButtonHorizontalRuleProps
 } from "./MenuButtonHorizontalRule";
 export {
   default as MenuButtonImageUpload,
-  type MenuButtonImageUploadProps,
+  type MenuButtonImageUploadProps
 } from "./MenuButtonImageUpload";
 export {
   default as MenuButtonIndent,
-  type MenuButtonIndentProps,
+  type MenuButtonIndentProps
 } from "./MenuButtonIndent";
 export {
   default as MenuButtonItalic,
-  type MenuButtonItalicProps,
+  type MenuButtonItalicProps
 } from "./MenuButtonItalic";
 export {
   default as MenuButtonOrderedList,
-  type MenuButtonOrderedListProps,
+  type MenuButtonOrderedListProps
 } from "./MenuButtonOrderedList";
 export {
   default as MenuButtonRedo,
-  type MenuButtonRedoProps,
+  type MenuButtonRedoProps
 } from "./MenuButtonRedo";
 export {
   default as MenuButtonRemoveFormatting,
-  type MenuButtonRemoveFormattingProps,
+  type MenuButtonRemoveFormattingProps
 } from "./MenuButtonRemoveFormatting";
 export {
   default as MenuButtonStrikethrough,
-  type MenuButtonStrikethroughProps,
+  type MenuButtonStrikethroughProps
 } from "./MenuButtonStrikethrough";
 export {
   default as MenuButtonSubscript,
-  type MenuButtonSubscriptProps,
+  type MenuButtonSubscriptProps
 } from "./MenuButtonSubscript";
 export {
   default as MenuButtonSuperscript,
-  type MenuButtonSuperscriptProps,
+  type MenuButtonSuperscriptProps
 } from "./MenuButtonSuperscript";
 export {
   default as MenuButtonTaskList,
-  type MenuButtonTaskListProps,
+  type MenuButtonTaskListProps
 } from "./MenuButtonTaskList";
 export {
   default as MenuButtonTextColor,
-  type MenuButtonTextColorProps,
+  type MenuButtonTextColorProps
 } from "./MenuButtonTextColor";
 export {
   default as MenuButtonTooltip,
-  type MenuButtonTooltipProps,
+  type MenuButtonTooltipProps
 } from "./MenuButtonTooltip";
 export {
   default as MenuButtonUnderline,
-  type MenuButtonUnderlineProps,
+  type MenuButtonUnderlineProps
 } from "./MenuButtonUnderline";
 export {
   default as MenuButtonUndo,
-  type MenuButtonUndoProps,
+  type MenuButtonUndoProps
 } from "./MenuButtonUndo";
 export {
   default as MenuButtonUnindent,
-  type MenuButtonUnindentProps,
+  type MenuButtonUnindentProps
 } from "./MenuButtonUnindent";
 export {
   default as MenuControlsContainer,
-  type MenuControlsContainerProps,
+  type MenuControlsContainerProps
 } from "./MenuControlsContainer";
 export { default as MenuSelect, type MenuSelectProps } from "./MenuSelect";
 export {
   default as MenuSelectFontFamily,
   type FontFamilySelectOption,
-  type MenuSelectFontFamilyProps,
+  type MenuSelectFontFamilyProps
 } from "./MenuSelectFontFamily";
 export {
   default as MenuSelectFontSize,
-  type MenuSelectFontSizeProps,
+  type MenuSelectFontSizeProps
 } from "./MenuSelectFontSize";
 export {
   default as MenuSelectHeading,
   type HeadingOptionValue,
-  type MenuSelectHeadingProps,
+  type MenuSelectHeadingProps
 } from "./MenuSelectHeading";
 export {
   default as MenuSelectTextAlign,
   type MenuSelectTextAlignProps,
-  type TextAlignSelectOption,
+  type TextAlignSelectOption
 } from "./MenuSelectTextAlign";
 export {
   default as TableMenuControls,
-  type TableMenuControlsProps,
+  type TableMenuControlsProps
 } from "./TableMenuControls";
+
+export {
+  default as MenuButtonVideoUpload,
+  type MenuButtonVideoUploadProps
+} from "./MenuButtonVideoUpload";
+export {
+  default as MenuButtonYoutube,
+  type MenuButtonYoutubeProps
+} from "./MenuButtonYoutube";
+

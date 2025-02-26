@@ -1,16 +1,18 @@
 export {
   default as FontSize,
   type FontSizeAttrs,
-  type FontSizeOptions,
+  type FontSizeOptions
 } from "./FontSize";
 export {
   default as HeadingWithAnchor,
   scrollToCurrentHeadingAnchor,
-  type HeadingWithAnchorOptions,
+  type HeadingWithAnchorOptions
 } from "./HeadingWithAnchor";
 export {
   default as LinkBubbleMenuHandler,
-  type LinkBubbleMenuHandlerStorage,
+  type LinkBubbleMenuHandlerStorage
 } from "./LinkBubbleMenuHandler";
 export { default as ResizableImage } from "./ResizableImage";
 export { default as TableImproved } from "./TableImproved";
+export { default as Video } from "./Video";
+

@@ -12,7 +12,6 @@ import MenuButtonTooltip, {
 // We'll import just the type for TextAlignOptions, which we don't expose
 // externally but only utilize within the component below, so allow this import
 // without needing to list extension-text-align as a peer dependency.
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { TextAlignOptions } from "@tiptap/extension-text-align";
 import type { Except } from "type-fest";
 import { MENU_BUTTON_FONT_SIZE_DEFAULT } from "./MenuButton";
