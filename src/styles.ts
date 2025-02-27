@@ -491,9 +491,12 @@ export function getEditorStyles(theme: Theme): StyleRules {
       textAlign: "center",
       "& > iframe": {
         width: "100%",
-        maxWidth: "70%",
+        maxWidth: "100%",
         height: "auto",
         aspectRatio: "16 / 9",
+        [theme.breakpoints.up("md")]: {
+          maxWidth: "70%",
+        }
       },
     },
   };
