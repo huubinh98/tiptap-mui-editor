@@ -66,15 +66,19 @@ const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({
         disabled={!editor?.isEditable}
         {...props}
       />
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog maxWidth="md" open={open} onClose={handleClose}>
         <DialogTitle>Nhúng video YouTube</DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ p: 3, minHeight: 80 }}> {/* Tăng padding và minHeight */}
           <TextField
+            variant="outlined" // Sử dụng outlined để đảm bảo label floating hiển thị tốt
+            size="small"
             autoFocus
             label="URL YouTube"
             fullWidth
             value={url}
             onChange={(e) => setUrl(e.target.value)}
+            InputLabelProps={{ shrink: true }}
+            sx={{ mt: 1 }} 
           />
         </DialogContent>
         <DialogActions>
