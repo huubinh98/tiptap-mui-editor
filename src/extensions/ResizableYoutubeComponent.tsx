@@ -4,8 +4,8 @@ import { NodeViewWrapper } from "@tiptap/react";
 import throttle from "lodash/throttle";
 import { useMemo, useRef, useState } from "react";
 import { makeStyles } from "tss-react/mui";
-import { ResizableImageResizer } from "./ResizableImageResizer";
 import ResizableYoutube from "./ResizableYoutube";
+import { ResizableYoutubeResizer } from "./ResizableYoutubeResizer";
 
 interface YoutubeNodeAttributes {
   src: string;
@@ -13,7 +13,7 @@ interface YoutubeNodeAttributes {
   height?: string | number;
   controls?: boolean;
   allowFullscreen?: boolean;
-  textAlign?: string;
+  textAlign?: "left" | "center" | "right" | "justify";
 }
 
 interface ResizableYoutubeNode extends ProseMirrorNode {
@@ -27,24 +27,26 @@ interface Props extends NodeViewProps {
 
 const YOUTUBE_MINIMUM_WIDTH_PIXELS = 200;
 
-const useStyles = makeStyles({ name: { ResizableYoutubeComponent } })((theme) => ({
-  youtubeContainer: {
-    display: "inline-flex",
-    position: "relative",
-  },
-  youtube: {
-    display: "block",
-    border: "none",
-  },
-  youtubeSelected: {
-    outline: `3px solid ${theme.palette.primary.main}`,
-  },
-  resizer: {
-    '.ProseMirror[contenteditable="false"] &': {
-      display: "none",
+const useStyles = makeStyles({ name: { ResizableYoutubeComponent } })(
+  (theme) => ({
+    youtubeContainer: {
+      display: "inline-flex",
+      position: "relative",
     },
-  },
-}));
+    youtube: {
+      display: "block",
+      border: "none",
+    },
+    youtubeSelected: {
+      outline: `3px solid ${theme.palette.primary.main}`,
+    },
+    resizer: {
+      '.ProseMirror[contenteditable="false"] &': {
+        display: "none",
+      },
+    },
+  })
+);
 
 function ResizableYoutubeComponent(props: Props) {
   const { node, selected, updateAttributes, extension } = props;
@@ -61,7 +63,8 @@ function ResizableYoutubeComponent(props: Props) {
         (event: MouseEvent) => {
           if (!iframeRef.current) return;
 
-          const originalBoundingRect = iframeRef.current.getBoundingClientRect();
+          const originalBoundingRect =
+            iframeRef.current.getBoundingClientRect();
           const resizedWidth = event.clientX - originalBoundingRect.x;
           const resizedHeight = event.clientY - originalBoundingRect.y;
 
@@ -85,10 +88,12 @@ function ResizableYoutubeComponent(props: Props) {
     [updateAttributes]
   );
 
+  const ChildComponent = extension.options.ChildComponent;
+
   return (
     <NodeViewWrapper
       style={{
-        textAlign: attrs.textAlign,
+        textAlign: attrs.textAlign  || "center",
         width: "100%",
       }}
       as={extension.options.inline ? "span" : "div"}
@@ -96,7 +101,9 @@ function ResizableYoutubeComponent(props: Props) {
       <div className={classes.youtubeContainer}>
         <iframe
           ref={iframeRef}
-          src={`https://www.youtube.com/embed/${new URL(attrs.src).searchParams.get("v")}`}
+          src={`https://www.youtube.com/embed/${new URL(
+            attrs.src
+          ).searchParams.get("v")}`}
           width={attrs.width ? Number(attrs.width) || undefined : undefined}
           height={attrs.height ? Number(attrs.height) || undefined : undefined}
           frameBorder="0"
@@ -108,19 +115,24 @@ function ResizableYoutubeComponent(props: Props) {
           )}
           style={{
             maxWidth: attrs.width ? undefined : "100%",
-            aspectRatio: attrs.width && attrs.height ? `${attrs.width}/${attrs.height}` : "16/9",
+            aspectRatio:
+              attrs.width && attrs.height
+                ? `${attrs.width}/${attrs.height}`
+                : "16/9",
           }}
           data-drag-handle
         />
 
         {selectedOrResizing && (
-          <ResizableImageResizer
+          <ResizableYoutubeResizer
             onResize={handleResize}
             className={classes.resizer}
             mouseDown={resizerMouseDown}
             setMouseDown={setResizerMouseDown}
           />
         )}
+
+        {ChildComponent && <ChildComponent {...props} />}
       </div>
     </NodeViewWrapper>
   );

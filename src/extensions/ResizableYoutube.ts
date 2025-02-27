@@ -1,11 +1,13 @@
-import { Node } from "@tiptap/core";
+import { Node, NodeViewProps } from "@tiptap/core";
 import { Youtube, YoutubeOptions } from "@tiptap/extension-youtube";
 import { ReactNodeViewRenderer } from "@tiptap/react";
 import ResizableYoutubeComponent from "./ResizableYoutubeComponent";
 
 interface YoutubeAttributes extends YoutubeOptions {
+  ChildComponent?: React.ElementType<NodeViewProps>;
   width: number;
   height: number;
+  textAlign?: "left" | "center" | "right" | "justify";
 }
 
 declare module "@tiptap/core" {
@@ -40,15 +42,52 @@ export const ResizableYoutube = Node.create<YoutubeAttributes>({
       height: { default: "auto" },
       controls: { default: true },
       allowFullscreen: { default: true },
+      textAlign: { default: "center" },
     };
   },
 
+  // parseHTML() {
+  //   return [{ tag: "div[data-youtube-video]" }];
+  // },
+
   parseHTML() {
-    return [{ tag: "div[data-youtube-video]" }];
+    return [
+      {
+        tag: "div[data-youtube-video]",
+        getAttrs: (dom: HTMLElement) => {
+          const iframe = dom.querySelector("iframe");
+          return {
+            src: iframe?.getAttribute("src") || null,
+            width: dom.style.width || "100%",
+            height:
+              (iframe?.getAttribute("height") as unknown as number) || 360,
+            controls: true,
+            allowFullscreen: dom.hasAttribute("allowfullscreen"),
+            textAlign: dom.style.textAlign || "center", // Lấy textAlign từ style
+          };
+        },
+      },
+    ];
   },
 
+  // renderHTML({ HTMLAttributes }) {
+  //   return [
+  //     "div",
+  //     {
+  //       "data-youtube-video": "",
+  //       ...HTMLAttributes,
+  //       style: { textAlign: HTMLAttributes.textAlign },
+  //     },
+  //     ["iframe", HTMLAttributes],
+  //   ];
+  // },
+
   renderHTML({ HTMLAttributes }) {
-    return ["div", { "data-youtube-video": "", ...HTMLAttributes }, ["iframe", HTMLAttributes]];
+    return [
+      "div",
+      { "data-youtube-video": "", ...HTMLAttributes, style: { textAlign: HTMLAttributes.textAlign || "center" } },
+      ["iframe", { ...HTMLAttributes, width: HTMLAttributes.width || 640, height: HTMLAttributes.height || 360 }],
+    ];
   },
 
   addNodeView() {

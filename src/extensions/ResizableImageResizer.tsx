@@ -66,6 +66,7 @@ export function ResizableImageResizer({
   }, [setMouseDown]);
 
   const handleMouseDown = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (_event: React.MouseEvent) => {
       setMouseDown(true);
     },
@@ -77,7 +78,6 @@ export function ResizableImageResizer({
     // closest, as described here https://stackoverflow.com/a/43022983/4543977,
     // but we don't do keyboard-based resizing at this time so it doesn't make
     // sense to have it keyboard focusable)
-    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       // TODO(Steven DeMartini): Add keyboard support and better accessibility
       // here, and allow users to override the aria-label when that happens to

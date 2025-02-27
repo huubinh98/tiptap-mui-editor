@@ -1,7 +1,3 @@
-// import { Node } from "@tiptap/core";
-// import { ReactNodeViewRenderer } from "@tiptap/react";
-// import ResizableVideoComponent from "./ResizableVideoComponent";
-
 import {
   ExtendedRegExpMatchArray,
   InputRule,
@@ -12,68 +8,6 @@ import { ReactNodeViewRenderer } from "@tiptap/react";
 import ResizableImageComponent from "./ResizableImageComponent";
 import Video, { VideoOptions } from "./Video";
 
-// interface VideoAttributes {
-//   src: string;
-//   controls?: boolean;
-//   width?: string | number;
-//   height?: string | number;
-// }
-
-// declare module "@tiptap/core" {
-//   interface Commands<ReturnType> {
-//     resizableVideo: {
-//       setVideo: (options: VideoAttributes) => ReturnType;
-//       updateVideo: (options: Partial<VideoAttributes>) => ReturnType;
-//     };
-//   }
-// }
-
-// export const ResizableVideo = Node.create<VideoAttributes>({
-//   name: "video",
-//   group: "block",
-//   atom: true,
-
-//   addAttributes() {
-//     return {
-//       src: { default: null },
-//       controls: { default: true },
-//       width: { default: "100%" },
-//       height: { default: "auto" },
-//     };
-//   },
-
-//   parseHTML() {
-//     return [{ tag: "video" }];
-//   },
-
-//   renderHTML({ HTMLAttributes }) {
-//     return ["video", HTMLAttributes];
-//   },
-
-//   addNodeView() {
-//     return ReactNodeViewRenderer(ResizableVideoComponent);
-//   },
-
-//   addCommands() {
-//     return {
-//       setVideo:
-//         (options) =>
-//         ({ commands }) => {
-//           return commands.insertContent({
-//             type: this.name,
-//             attrs: options,
-//           });
-//         },
-//       updateVideo:
-//         (options) =>
-//         ({ commands }) => {
-//           return commands.updateAttributes(this.name, options);
-//         },
-//     };
-//   },
-// });
-
-// export default ResizableVideo;
 
 export type ResizableVideoOptions = VideoOptions & {
   /**

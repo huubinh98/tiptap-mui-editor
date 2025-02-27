@@ -1,7 +1,14 @@
 /// <reference types="@tiptap/extension-youtube" />
 
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+} from "@mui/material";
 import type { Editor } from "@tiptap/core";
 import React, { useState } from "react";
 import { useRichTextEditorContext } from "../context";
@@ -17,7 +24,10 @@ export interface MenuButtonYoutubeProps extends Partial<MenuButtonProps> {
 /**
  * Render a button that opens a dialog for inserting a YouTube video URL into the editor.
  */
-const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({ editor: editorProp, ...props }) => {
+const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({
+  editor: editorProp,
+  ...props
+}) => {
   const contextEditor = useRichTextEditorContext();
   const editor = editorProp ?? contextEditor; // Use prop if provided, else context
   const [open, setOpen] = useState(false);
@@ -36,11 +46,13 @@ const MenuButtonYoutube: React.FC<MenuButtonYoutubeProps> = ({ editor: editorPro
 
   const handleInsert = () => {
     if (url && editor && !editor.isDestroyed) {
-      editor.chain().focus().setYoutubeVideo({
-        src: url,
-        width: 640,
-        height: 360,
-      }).run();
+      editor
+        .chain()
+        .focus()
+        .setYoutubeVideo({
+          src: url,
+        })
+        .run();
     }
     handleClose();
   };

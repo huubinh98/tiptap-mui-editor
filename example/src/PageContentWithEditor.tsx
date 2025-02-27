@@ -24,6 +24,8 @@ import { TableRow } from "@tiptap/extension-table-row";
 import { TaskItem } from "@tiptap/extension-task-item";
 import { TaskList } from "@tiptap/extension-task-list";
 import { Text } from "@tiptap/extension-text";
+import TextAlign from "@tiptap/extension-text-align";
+import Youtube from "@tiptap/extension-youtube";
 import { useRef, useState } from "react";
 import {
   HeadingWithAnchor,
@@ -49,12 +51,13 @@ import {
   MenuControlsContainer,
   MenuDivider,
   MenuSelectHeading,
+  MenuSelectTextAlign,
   ResizableImage,
   ResizableVideo,
   RichTextEditor,
   RichTextEditorRef,
   TableBubbleMenu,
-  TableImproved,
+  TableImproved
 } from "../../dist";
 
 const exampleContent =
@@ -133,10 +136,14 @@ const extensions = [
     nested: true,
   }),
 
+  TextAlign.configure({
+    types: ["heading", "paragraph", "image", "video", "youtube"],
+  }),
+
   Placeholder.configure({
     placeholder: "Add your own content here...",
   }),
-  // Youtube.configure({ controls: true }),
+  Youtube.configure({ controls: true }),
   // Video,
 
   // We use the regular `History` (undo/redo) extension when not using
@@ -161,7 +168,11 @@ export default function PageContentWithEditor() {
   // };
 
   return (
-    <>
+    <Box sx={{
+      "& [data-youtube-video]": {
+        textAlign: "center",
+      }
+    }}>
       <Box mb={2}>Try the editor below!</Box>
 
       <RichTextEditor
@@ -208,6 +219,7 @@ export default function PageContentWithEditor() {
 
             <MenuButtonRemoveFormatting />
 
+          <MenuSelectTextAlign />
             <MenuButtonYoutube editor={rteRef.current?.editor} />
             <MenuButtonImageUpload
               onUploadFiles={(files) =>
@@ -259,6 +271,6 @@ export default function PageContentWithEditor() {
           <code>{htmlResult}</code>
         </pre>
       )}
-    </>
+    </Box>
   );
 }

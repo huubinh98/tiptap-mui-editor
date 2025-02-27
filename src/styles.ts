@@ -486,6 +486,16 @@ export function getEditorStyles(theme: Theme): StyleRules {
       // name.
       animation: `${cursorDelayOpacityChangeAnimation} 3s linear 1`,
     },
+
+    "& [data-youtube-video]": {
+      textAlign: "center",
+      "& > iframe": {
+        width: "100%",
+        maxWidth: "70%",
+        height: "auto",
+        aspectRatio: "16 / 9",
+      },
+    },
   };
 }
 

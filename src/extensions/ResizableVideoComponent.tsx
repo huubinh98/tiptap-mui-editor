@@ -5,7 +5,7 @@ import throttle from "lodash/throttle";
 import { useMemo, useRef, useState } from "react";
 import { makeStyles } from "tss-react/mui";
 import type ResizableVideo from "../extensions/ResizableVideo";
-import { ResizableImageResizer } from "./ResizableImageResizer";
+import { ResizableVideoResizer } from "./ResizableVideoResizer";
 
 interface VideoNodeAttributes extends Record<string, unknown> {
   src: string;
@@ -89,6 +89,8 @@ function ResizableVideoComponent(props: Props) {
     [updateAttributes]
   );
 
+  const ChildComponent = extension.options.ChildComponent;
+
   return (
     <NodeViewWrapper
       style={{
@@ -97,7 +99,7 @@ function ResizableVideoComponent(props: Props) {
         // only applied via `renderHTML` and not the `NodeView` renderer
         // (https://github.com/ueberdosis/tiptap/blob/6c34dec33ac39c9f037a0a72e4525f3fc6d422bf/packages/extension-text-align/src/text-align.ts#L43-L49),
         // so we have to do this manually/redundantly here.
-        textAlign: attrs.textAlign,
+        textAlign: attrs.textAlign || "center",
         width: "100%",
       }}
       // Change the outer component's component to a "span" if the `inline`
@@ -128,13 +130,15 @@ function ResizableVideoComponent(props: Props) {
         />
 
         {selectedOrResizing && (
-          <ResizableImageResizer
+          <ResizableVideoResizer
             onResize={handleResize}
             className={classes.resizer}
             mouseDown={resizerMouseDown}
             setMouseDown={setResizerMouseDown}
           />
         )}
+
+        {ChildComponent && <ChildComponent {...props} />}
       </div>
     </NodeViewWrapper>
   );
